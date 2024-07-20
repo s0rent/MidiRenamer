@@ -3,8 +3,9 @@
 By default, MIDI input/output devices in Windows get their names automatically and the names cannot be changed. If you have more than one MIDI port, it can however be difficult to remember which instrument is connected to which port, especially with devices like the ESI M4U eX which has 8 midi ports named "M4U eX 1" to "M4U eX 8". 
 
 In Windows, the name (or "FriendlyName") of a device is stored in the registry, like for instance:
-`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceClasses\{6994ad04-93ef-11d0-a3cc-00a0c9223196}\##?#USB#VID_2573&PID_004A#no_serial_number#{6994ad04-93ef-11d0-a3cc-00a0c9223196}\#ESI_MIDI1\Device Parameters\FriendlyName`
-
+```
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceClasses\{6994ad04-93ef-11d0-a3cc-00a0c9223196}\##?#USB#VID_2573&PID_004A#no_serial_number#{6994ad04-93ef-11d0-a3cc-00a0c9223196}\#ESI_MIDI1\Device Parameters\FriendlyName
+```
 (The identifiers `VID_2573&PID_004A` are for a ESI M4U eX device)
 
 The name is reset at every reboot and if the device is moved to a different USB port, so changing the name manually is not a viable solution. 
@@ -21,7 +22,9 @@ Command line arguments (all optional):
 - `<path-to-config-file(s)>` Paths to the config XML file(s) to load. Defaults to "MidiRenamerConfig.xml" if no other paths are specified.
 
 A config XML file must exist specifying which device you wish to change, and which values you want to rename, like in the following example (or the example file in the source):
-`<midi-renamer device-partial-name="USB#VID_2573&amp;PID_004">
+
+```
+<midi-renamer device-partial-name="USB#VID_2573&amp;PID_004">
 	<rename>
 		<from>M4U eX 1</from>
 		<to>0 - Prophet 5</to>
@@ -30,7 +33,8 @@ A config XML file must exist specifying which device you wish to change, and whi
 		<from>M4U eX 2</from>
 		<to>1 - Wavestation</to>
 	</rename>
-</midi-renamer>`
+</midi-renamer>
+```
 
 `device-partial-name` is the name of the MIDI device which you want to rename. As the name implies, the name can be partial (for instance to rename both "PID_004A" and "PID_004B" ports to the same names). Each `rename` node contains a `from` node with the original name which the __MidiRenamer__ looks for, which will be changed to the name in the `to` node. If `from` cannot be found, the requested name change will be ignored.
 
