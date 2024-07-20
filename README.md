@@ -4,7 +4,9 @@ By default, MIDI input/output devices in Windows get their names automatically a
 
 In Windows, the name (or "FriendlyName") of a device is stored in the registry, like for instance:
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceClasses\{6994ad04-93ef-11d0-a3cc-00a0c9223196}\##?#USB#VID_2573&PID_004A#no_serial_number#{6994ad04-93ef-11d0-a3cc-00a0c9223196}\#ESI_MIDI1\Device Parameters\FriendlyName`
-(The USB identifiers `VID_2573&PID_004A` are for a ESI M4U eX device)
+
+(The identifiers `VID_2573&PID_004A` are for a ESI M4U eX device)
+
 The name is reset at every reboot and if the device is moved to a different USB port, so changing the name manually is not a viable solution. 
 
 __MidiRenamer__ is a tool for automatically changing the name of MIDI devices on demand or on startup. 
