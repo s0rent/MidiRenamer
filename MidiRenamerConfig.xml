@@ -1,0 +1,34 @@
+<midi-renamer device-partial-name="USB#VID_2573&amp;PID_004">
+	<rename>
+		<from>M4U eX 1</from>
+		<to>0 - OB 8</to>
+	</rename>
+	<rename>
+		<from>M4U eX 2</from>
+		<to>1 - Syntrx II</to>
+	</rename>
+	<rename>
+		<from>M4U eX 3</from>
+		<to>2 - Prophet 5</to>
+	</rename>
+	<rename>
+		<from>M4U eX 4</from>
+		<to>3 - Microfreak</to>
+	</rename>
+	<rename>
+		<from>M4U eX 5</from>
+		<to>4 - Wavestation</to>
+	</rename>
+	<rename>
+		<from>M4U eX 6</from>
+		<to>5 - MS-20</to>
+	</rename>
+	<rename>
+		<from>M4U eX 7</from>
+		<to>6 - Arp 2600</to>
+	</rename>
+	<rename>
+		<from>M4U eX 8</from>
+		<to>7 - RD-8 MKII</to>
+	</rename>
+</midi-renamer>
