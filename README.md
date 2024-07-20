@@ -6,7 +6,7 @@ In Windows, the name (or "FriendlyName") of a device is stored in the registry, 
 ```
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceClasses\{6994ad04-93ef-11d0-a3cc-00a0c9223196}\##?#USB#VID_2573&PID_004A#no_serial_number#{6994ad04-93ef-11d0-a3cc-00a0c9223196}\#ESI_MIDI1\Device Parameters\FriendlyName
 ```
-(The identifiers `VID_2573&PID_004A` are for a ESI M4U eX device)
+(The identifiers `VID_2573&PID_004A` are for an ESI M4U eX device)
 
 The name is reset at every reboot and if the device is moved to a different USB port, so changing the name manually is not a viable solution. 
 
@@ -41,7 +41,7 @@ A config XML file must exist specifying which device you wish to change, and whi
 To rename the port(s) of more than one MIDI device, create a config XML file for each device and start __MidiRenamer__ with the paths to each file as arguments (see above).
 
 ## Limitations
-__MidiRenamer__ only looks for "Device Parameters\FriendlyName" one level below the device key, but ignores the key name, e.g. `\##?#USB#VID_2573&PID_004A#no_serial_number#{6994ad04-93ef-11d0-a3cc-00a0c9223196}\<key-name-ignored>\Device Parameters\FriendlyName`. If your MIDI device stores "FriendlyName" in a deeper key structure, you must change the source code and compile your own version.
+__MidiRenamer__ looks for "Device Parameters\FriendlyName" exactly one level below the device key, but ignores the key name, e.g. `\##?#USB#VID_2573&PID_004A#no_serial_number#{6994ad04-93ef-11d0-a3cc-00a0c9223196}\<key-name-ignored>\Device Parameters\FriendlyName`. If your MIDI device stores "FriendlyName" in a different key structure, you must change the source code and compile your own version.
 
 ## Other uses
 Despite the "MIDI" name, this program can also rename other device types below "CurrentControlSet", given that the "FriendlyName" can be found at the same key level as typical for MIDI devices.
