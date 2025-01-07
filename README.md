@@ -36,12 +36,20 @@ A config XML file must exist specifying which device you wish to change, and whi
 </midi-renamer>
 ```
 
-`device-partial-name` is the name of the MIDI device which you want to rename. As the name implies, the name can be partial (for instance to rename both "PID_004A" and "PID_004B" ports to the same names). Each `rename` node contains a `from` node with the original name which the __MidiRenamer__ looks for, which will be changed to the name in the `to` node. If `from` cannot be found, the requested name change will be ignored.
+`device-partial-name` is the name of the MIDI device which you want to rename. As the name implies, the name can be partial (for instance to rename both "PID_004A" and "PID_004B" ports to the same names, or just to make the config file easier to read). Each `rename` node contains a `from` node with the original name which the __MidiRenamer__ program looks for, which will be changed to the name in the `to` node. If `from` cannot be found, the requested name change will be ignored.
 
 To rename the port(s) of more than one MIDI device, create a config XML file for each device and start __MidiRenamer__ with the paths to each file as arguments (see above).
+
+## Example
+An easy way to use the program is to run it evert time you start your DAW. If for instance you use FL studio, instead of starting FL studio directly, you can do it with a .BAT file like this:
+
+```
+"C:\Users\MyUserName\Documents\MidiRenamer.exe" "C:\Users\MyUserName\Documents\MidiRenamerConfig-Device1.xml" "C:\Users\MyUserName\Documents\MidiRenamerConfig-Device2.xml"
+start "" "C:\Program Files (x86)\Image-Line\FL Studio 21\FL64.exe"
+```
 
 ## Limitations
 __MidiRenamer__ looks for "Device Parameters\FriendlyName" exactly one level below the device key, but ignores the key name, e.g. `\##?#USB#VID_2573&PID_004A#no_serial_number#{6994ad04-93ef-11d0-a3cc-00a0c9223196}\<key-name-ignored>\Device Parameters\FriendlyName`. If your MIDI device stores "FriendlyName" in a different key structure, you must change the source code and compile your own version.
 
-## Other uses
+# Other uses
 Despite the "MIDI" name, this program can also rename other device types below "CurrentControlSet", given that the "FriendlyName" can be found at the same key level as typical for MIDI devices.
